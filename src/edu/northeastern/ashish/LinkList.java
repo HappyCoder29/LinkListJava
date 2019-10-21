@@ -34,6 +34,19 @@ public class LinkList <T> {
         temp.Next = add;
     }
 
+    // Assuming no cycle
+    public Node<T> getLastNode(){
+        if(head == null )
+            return  null;
+        Node<T> temp = head;
+
+        while(temp.Next  != null)
+            temp = temp.Next;
+
+        return  temp;
+
+    }
+
     // Prints the link list assuming no cycles
     public void printList(){
         if(head == null)
