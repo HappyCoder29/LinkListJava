@@ -8,12 +8,15 @@ public class LinkList <T> {
         head = null;
     }
 
+    // Adds Data to head of link list
     public void addToHead(T data)
     {
         Node add = new Node(data);
         add.Next = head;
         head = add;
     }
+
+    // Adds data to tail of link list
     public void addToTail(T data)
     {
         Node add = new Node(data);
@@ -31,6 +34,7 @@ public class LinkList <T> {
         temp.Next = add;
     }
 
+    // Prints the link list assuming no cycles
     public void printList(){
         if(head == null)
             return;
@@ -44,6 +48,7 @@ public class LinkList <T> {
 
     }
 
+    // Count of nodes in link list
     public int count()
     {
 
@@ -61,6 +66,7 @@ public class LinkList <T> {
 
     }
 
+    // Reverses a link list from start to end
     public void reverse()
     {
         if (head == null || head.Next == null)
@@ -82,7 +88,8 @@ public class LinkList <T> {
         head = mid;
     }
 
-    public Node NthFromEnd(int n)
+    // get the nth node from end, returns null if there are less than n nodes
+    public Node nthFromEnd(int n)
     {
         if (head == null || n <= 0)
             return null;
@@ -106,6 +113,7 @@ public class LinkList <T> {
         return back;
     }
 
+    // Checks if the list has cycle.
     public boolean isCyclic()
     {
         if (head == null || head.Next == null)
@@ -130,6 +138,7 @@ public class LinkList <T> {
 
     }
 
+    // Finds the starting point of a cycle in the list. Returns null if there is no cycle
     public Node findStartCycle()
     {
         if (head == null || head.Next == null)
@@ -162,6 +171,7 @@ public class LinkList <T> {
     }
 
 
+    // returns merges nodes of 2 sorted link list
     public Node sortedMerge(Node node1, Node node2)
     {
         Node result = null;
@@ -182,6 +192,7 @@ public class LinkList <T> {
         return result;
     }
 
+    // reverses list from the node provided.
     public Node reverse(Node node)
     {
         if (node == null || node.Next == null)
@@ -205,6 +216,7 @@ public class LinkList <T> {
         return node;
     }
 
+    // breaks list in half
     public Node breakListInHalf()
     {
 
@@ -229,6 +241,33 @@ public class LinkList <T> {
         return temp;
     }
 
+    // breaks list in half from the node specified
+    // assumes no cycle
+    public Node breakListInHalf(Node node)
+    {
+
+        if (node == null || node.Next == null)
+            return null;
+
+        Node front = node;
+        Node back = node;
+
+        while (front.Next != null)
+        {
+            front = front.Next;
+            if (front.Next != null)
+            {
+                front = front.Next;
+                back = back.Next;
+            }
+        }
+
+        Node temp = back.Next;
+        back.Next = null;
+        return temp;
+    }
+
+    // Checks if list is palindrome
     public boolean isPalindrome()
     {
         if (head == null || head.Next == null)
@@ -263,6 +302,7 @@ public class LinkList <T> {
         System.out.print(node.data + " ");
     }
 
+    // Merges list in Zip manner
     public void ZipMerge()
     {
 
