@@ -182,7 +182,7 @@ public class LinkList <T> {
         return result;
     }
 
-    public Node Reverse(Node node)
+    public Node reverse(Node node)
     {
         if (node == null || node.Next == null)
             return null;
@@ -229,14 +229,14 @@ public class LinkList <T> {
         return temp;
     }
 
-    public boolean IsPalindrome()
+    public boolean isPalindrome()
     {
         if (head == null || head.Next == null)
             return true;
 
         Node secondHalf = breakListInHalf();
 
-        secondHalf = Reverse(secondHalf);
+        secondHalf = reverse(secondHalf);
 
         Node firstHalf = head;
 
@@ -251,14 +251,14 @@ public class LinkList <T> {
     }
 
     /* Function to reverse the linked list */
-    private void PrintReverse(Node node)
+    private void printReverse(Node node)
     {
         // Base case
         if (node == null)
             return;
 
         // print the list after head node
-        PrintReverse(node.Next);
+        printReverse(node.Next);
 
         System.out.print(node.data + " ");
     }
@@ -269,7 +269,7 @@ public class LinkList <T> {
         Node secondHalf = breakListInHalf();
         Node firstHalf = head;
 
-        secondHalf = Reverse(secondHalf);
+        secondHalf = reverse(secondHalf);
 
         head = zipMerge(firstHalf, secondHalf, true);
     }
